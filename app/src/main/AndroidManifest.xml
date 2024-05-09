@@ -25,9 +25,12 @@
                 android:name="android.app.lib_name"
                 android:value=""/>
         </activity>
+<<<<<<< HEAD
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+=======
+>>>>>>> a3fe67fc80c108b549097bd72e18e23c61a7644e
     </application>
 
 </manifest>
