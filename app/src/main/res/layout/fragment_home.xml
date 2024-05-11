@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:id="@+id/emptyNotesImage"
             android:visibility="gone"
-            android:src="@drawable/noteapp2"/>
+            android:src="@drawable/noteapp4"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
