@@ -2,10 +2,10 @@ package com.example.thenotesapp.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
-import android.provider.ContactsContract.CommonDataKinds.Note
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.Menu
+import com.example.thenotesapp.databinding.FragmentEditNoteBinding
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
@@ -18,6 +18,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.thenotesapp.MainActivity
 import com.example.thenotesapp.R
+import com.example.thenotesapp.model.Note
 import com.example.thenotesapp.viewmodel.NoteViewModel
 
 
@@ -68,11 +69,12 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
         }
     }
 
-    private fun deleteNote(){
+    private fun deleteNote() {
         AlertDialog.Builder(activity).apply {
             setTitle("Delete Note")
             setMessage("Do you want to delete this note?")
-            setPositiveButton("Delete"){_,_ ->
+            setPositiveButton("Delete") { _, _ ->
+                // Call the method in your NoteViewModel to delete the note
                 notesViewModel.deleteNote(currentNote)
                 Toast.makeText(context, "Note Deleted", Toast.LENGTH_SHORT).show()
                 view?.findNavController()?.popBackStack(R.id.homeFragment2, false)

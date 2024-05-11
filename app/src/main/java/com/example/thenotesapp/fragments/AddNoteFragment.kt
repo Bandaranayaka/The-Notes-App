@@ -12,23 +12,21 @@ import android.widget.Toast
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
+import com.example.thenotesapp.databinding.FragmentAddNoteBinding
+
 import androidx.navigation.findNavController
 import com.example.thenotesapp.MainActivity
 import com.example.thenotesapp.R
 import com.example.thenotesapp.model.Note
 import com.example.thenotesapp.viewmodel.NoteViewModel
 
-
-class AddNoteFragment : Fragment(R.layout.fragment_add_note),MenuProvider {
+class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
     private var addNoteBinding: FragmentAddNoteBinding? = null
     private val binding get() = addNoteBinding!!
 
     private lateinit var notesViewModel: NoteViewModel
     private lateinit var addNoteView: View
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,23 +43,22 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note),MenuProvider {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
-
         notesViewModel = (activity as MainActivity).noteViewModel
         addNoteView = view
     }
 
-    private fun saveNote(view: View){
+    private fun saveNote() {
         val noteTitle = binding.addNoteTitle.text.toString().trim()
         val noteDesc = binding.addNoteDesc.text.toString().trim()
 
-        if(noteTitle.isNotEmpty()){
+        if (noteTitle.isNotEmpty()) {
             val note = Note(0, noteTitle, noteDesc)
             notesViewModel.addNote(note)
 
             Toast.makeText(addNoteView.context, "Note Saved", Toast.LENGTH_SHORT).show()
-            view.findNavController().popBackStack(R.id.homeFragment2, false)
+            view?.findNavController()?.popBackStack(R.id.homeFragment2, false)
 
-        }else{
+        } else {
             Toast.makeText(addNoteView.context, "Please enter note title", Toast.LENGTH_SHORT).show()
         }
     }
@@ -72,13 +69,12 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note),MenuProvider {
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return when(menuItem.itemId){
-            R.id.saveMenu ->{
-                saveNote(addNoteView)
+        return when (menuItem.itemId) {
+            R.id.saveMenu -> {
+                saveNote()
                 true
             }
             else -> false
-
         }
     }
 
@@ -86,5 +82,4 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note),MenuProvider {
         super.onDestroy()
         addNoteBinding = null
     }
-
 }

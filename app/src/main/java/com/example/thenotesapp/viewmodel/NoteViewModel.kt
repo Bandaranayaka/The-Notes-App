@@ -1,7 +1,6 @@
 package com.example.thenotesapp.viewmodel
 
 import android.app.Application
-import android.provider.ContactsContract
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.thenotesapp.model.Note
@@ -14,11 +13,11 @@ class NoteViewModel(app: Application, private val noteRepository: NoteRepository
         viewModelScope.launch {
             noteRepository.insertNote(note)
         }
-    fun deleteNote(note: ContactsContract.CommonDataKinds.Note) =
+    fun deleteNote(note: Note) =
         viewModelScope.launch {
             noteRepository.deleteNote(note)
         }
-    fun updateNote(note: ContactsContract.CommonDataKinds.Note) =
+    fun updateNote(note: Note) =
         viewModelScope.launch {
             noteRepository.updateNote(note)
         }

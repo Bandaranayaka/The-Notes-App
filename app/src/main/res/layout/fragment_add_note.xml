@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NewNoteFragment">
 
+    <!-- NewNoteFragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="12dp"
-        tools:context=".NewNoteFragment">
+        android:padding="12dp">
 
         <TextView
             android:id="@+id/addNoteHeading"
@@ -51,19 +52,5 @@
             android:textSize="18sp" />
 
     </RelativeLayout>
-</layout>
-=======
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.AddNoteFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
->>>>>>> a3fe67fc80c108b549097bd72e18e23c61a7644e
+</LinearLayout>

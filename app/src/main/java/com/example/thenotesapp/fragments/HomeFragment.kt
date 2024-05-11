@@ -2,8 +2,6 @@ package com.example.thenotesapp.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.*
-import android.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
@@ -22,7 +20,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.appcompat.widget.SearchView
 
 
 class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, MenuProvider {
